@@ -86,11 +86,16 @@ get_random_tip() {
     # Get the mode name from filename for display
     local mode_name=$(basename "$file" .txt)
     
+    # Format description with line wrapping for better readability (60 chars per line)
+    local formatted_description=$(echo "$description" | fold -s -w 60)
+
     # Display formatted tip
     echo ""
-    echo "[clue tip #$tip_num - $mode_name]"
-    echo "$description"
-    echo "Example: $example"
+    # Print each line in a different color
+    echo -e "\033[1;36m[clue tip #$tip_num - $mode_name]\033[0m"
+    echo -e "\033[1;32m$formatted_description\033[0m"
+    echo ""
+    echo -e "\033[1;33m$example\033[0m"
     echo ""
 }
 
