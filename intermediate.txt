@@ -1,8 +1,8 @@
-Use `find` with `-type f` to search only for files, or `-type d` for directories. Much more precise than basic find.<|>find /path -type f -name "*.txt"
-The `xargs` command lets you pass output from one command as arguments to another. Perfect for batch operations.<|>find . -name "*.log" | xargs rm
-Use `grep -r` to recursively search through directories for text patterns. Great for code exploration.<|>grep -r "function" /path/to/code
-The `awk` command processes structured text data line by line. Extract specific columns from files easily.<|>awk '{print $1, $3}' /etc/passwd
-Use `sed` to search and replace text in files. Powerful stream editor for text transformations.<|>sed 's/old/new/g' file.txt
+Use `find` with `-type f` to search only for files, or `-type d` for directories. Combine with `-name`, `-size`, `-mtime` for powerful searches. Much more precise and flexible than basic find operations.<|>find /path -type f -name "*.txt"
+The `xargs` command efficiently passes output from one command as arguments to another. It batches arguments to avoid 'argument list too long' errors and can run commands in parallel with -P flag.<|>find . -name "*.log" | xargs rm
+Use `grep -r` to recursively search through directories for text patterns. Add -n for line numbers, -i for case-insensitive, --include='*.py' for specific file types. Essential for code exploration.<|>grep -r "function" /path/to/code
+The `awk` command processes structured text data line by line with a full programming language syntax. It can handle variables, functions, patterns, and complex logic - like a lightweight Python for text processing.<|>awk '{print $1, $3}' /etc/passwd
+Use `sed` to search and replace text in files with powerful regular expressions. It can edit files in-place with -i, handle multiple commands with -e, and process streams efficiently without loading entire files into memory.<|>sed 's/old/new/g' file.txt
 The `cut -d:` command extracts fields from delimited data. Perfect for processing CSV or colon-separated files.<|>cut -d: -f1,3 /etc/passwd
 Use `sort -n` to sort numbers properly instead of alphabetically. Essential for numerical data.<|>sort -n numbers.txt
 The `uniq -c` command counts occurrences of duplicate lines. Great for frequency analysis.<|>sort file.txt | uniq -c
@@ -25,13 +25,13 @@ The `gunzip` command decompresses .gz files. Restore compressed files to origina
 Use `tar -czf` to create compressed archives. Combine multiple files into one compressed package.<|>tar -czf archive.tar.gz folder/
 The `tar -tf` command lists contents of tar archives without extracting. Preview what's inside.<|>tar -tf archive.tar.gz
 Use `cpio` for advanced archiving with more features than tar. Better for system backups.<|>find . | cpio -o > backup.cpio
-The `rsync -av` command synchronizes directories with verbose output. See exactly what's being copied.<|>rsync -av source/ destination/
+The `rsync -av` command synchronizes directories with archive mode and verbose output. It only transfers changed files, preserves permissions and timestamps, and can resume interrupted transfers - perfect for backups.<|>rsync -av source/ destination/
 Use `rsync --delete` to make destination identical to source. Removes extra files in destination.<|>rsync -av --delete source/ destination/
 The `scp -r` command recursively copies entire directories to remote servers.<|>scp -r folder/ user@host:/path/
 Use `sftp` for interactive file transfer to remote servers. More user-friendly than scp for multiple operations.<|>sftp user@hostname
 The `nc` (netcat) command creates network connections. Swiss army knife of networking tools.<|>nc -l 8080
-Use `ss` to see network connections and listening ports. Modern replacement for netstat.<|>ss -tuln
-The `lsof` command shows open files and network connections. Powerful troubleshooting tool.<|>lsof -i :80
+Use `ss` to see network connections and listening ports with modern, faster performance than netstat. It shows TCP/UDP sockets, process names, and can filter by state or port - the modern way to monitor network activity.<|>ss -tuln
+The `lsof` command shows open files and network connections by processes. Use it to find what's using a file, which process is on a port, or troubleshoot 'device busy' errors. Essential for system debugging.<|>lsof -i :80
 Use `netstat -tuln` to see listening network ports. Check what services are running.<|>netstat -tuln
 The `ping -c 4` command sends exactly 4 ping packets. Test network connectivity with control.<|>ping -c 4 google.com
 Use `traceroute` to see the network path to a destination. Debug network routing issues.<|>traceroute google.com

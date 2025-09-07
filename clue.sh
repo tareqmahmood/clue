@@ -86,8 +86,8 @@ get_random_tip() {
     # Get the mode name from filename for display
     local mode_name=$(basename "$file" .txt)
     
-    # Format description with line wrapping for better readability (60 chars per line)
-    local formatted_description=$(echo "$description" | fold -s -w 60)
+    # Format description with line wrapping for better readability (80 chars per line)
+    local formatted_description=$(echo "$description" | fold -s -w 80)
 
     # Display formatted tip
     echo ""

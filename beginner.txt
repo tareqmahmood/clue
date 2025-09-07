@@ -1,17 +1,17 @@
-Use `ls -lh` to see human-readable file sizes instead of raw bytes. The -h flag makes output much more readable.<|>ls -lh
+Use `ls -lh` to see human-readable file sizes instead of raw bytes. The -h flag converts sizes like 1048576 to 1.0M, making it much easier to understand disk usage at a glance.<|>ls -lh
 The `cd -` command takes you back to your previous directory. Very handy for switching between two locations.<|>cd -
 Use `pwd` to print your current working directory path. Essential when you're lost in the filesystem.<|>pwd
-The `ls -la` command shows all files including hidden ones (starting with dot). Great for seeing configuration files.<|>ls -la
-Use `mkdir -p` to create nested directories in one command. The -p flag creates parent directories as needed.<|>mkdir -p path/to/new/folder
+The `ls -la` command shows all files including hidden ones (starting with dot). Hidden files store configuration data, so this reveals important system files like .bashrc, .ssh/, and .git/ directories.<|>ls -la
+Use `mkdir -p` to create nested directories in one command. The -p flag creates parent directories as needed and won't error if directories already exist - perfect for project scaffolding.<|>mkdir -p path/to/new/folder
 The `cp -r` command copies directories recursively. Essential for copying folders and their contents.<|>cp -r source_folder destination_folder
 Use `mv` to both move and rename files. It's the same command for both operations in Linux.<|>mv oldname.txt newname.txt
-The `rm -i` command asks for confirmation before deleting files. Safer than plain rm for beginners.<|>rm -i filename.txt
+The `rm -i` command asks for confirmation before deleting files. This interactive mode prevents accidental deletions - type 'y' to confirm or 'n' to cancel. Essential safety practice for beginners.<|>rm -i filename.txt
 Use `cat` to quickly view the contents of a text file. Perfect for small files.<|>cat filename.txt
-The `less` command lets you scroll through large files page by page. Press 'q' to quit.<|>less largefile.txt
-Use `head` to see the first 10 lines of a file. Great for checking file headers or previewing content.<|>head filename.txt
-The `tail` command shows the last 10 lines of a file. Very useful for checking log files.<|>tail logfile.txt
+The `less` command lets you scroll through large files page by page. Use arrow keys, Page Up/Down, 'g' for top, 'G' for bottom, '/' to search, and 'q' to quit. Much better than cat for big files.<|>less largefile.txt
+Use `head` to see the first 10 lines of a file by default. Add -n to specify different amounts like `head -n 20` for 20 lines. Perfect for previewing log files, CSV headers, or code files.<|>head filename.txt
+The `tail` command shows the last 10 lines of a file by default. Use `tail -f` to follow files in real-time as they grow - invaluable for monitoring log files and debugging applications.<|>tail logfile.txt
 Use `wc -l` to count the number of lines in a file. Simple way to see file size in lines.<|>wc -l filename.txt
-The `which` command shows the full path of a command. Useful to see where programs are installed.<|>which python
+The `which` command shows the full path of executable programs. It searches your PATH environment variable to find where commands like python, git, or vim are installed on your system.<|>which python
 Use `man` followed by a command name to read its manual. The best way to learn about commands.<|>man ls
 The `history` command shows your recent commands. Great for finding commands you used before.<|>history
 Use `clear` to clean up your terminal screen. Keeps things tidy and easy to read.<|>clear

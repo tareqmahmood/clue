@@ -1,16 +1,16 @@
 Use `awk` to process structured text data. It's like a mini programming language for text manipulation.<|>awk '{print $1, $3}' /etc/passwd
-Process substitution with `<()` lets you use command output as if it were a file. Powerful for complex pipelines.<|>diff <(sort file1) <(sort file2)
-The `fc` command opens your last command in your default editor for complex modifications before re-execution.<|>fc
+Process substitution with `<()` creates temporary named pipes that let you use command output as if it were a file. This enables complex comparisons and operations without creating temporary files on disk.<|>diff <(sort file1) <(sort file2)
+The `fc` command (fix command) opens your last command in your default editor for complex modifications before re-execution. Perfect for editing long commands with multiple pipes, flags, or paths without retyping.<|>fc
 Advanced `sed` with multiple commands using semicolons. Chain text transformations in one command.<|>sed 's/old/new/g; s/foo/bar/g' file.txt
 Use `awk` with field separators to process CSV data. Extract and manipulate structured data efficiently.<|>awk -F',' '{print $2, $4}' data.csv
 The `perl -pe` command provides powerful one-liner text processing. More advanced than sed for complex patterns.<|>perl -pe 's/pattern/replacement/g' file.txt
 Use `python -c` for complex text processing that's beyond awk/sed capabilities. Full programming power in one line.<|>python -c "import sys; print(len(sys.stdin.read().split()))"
-Advanced `find` with `-exec` and `+` for efficient batch operations. Process multiple files with one command invocation.<|>find . -name "*.txt" -exec grep -l "pattern" {} +
+Advanced `find` with `-exec` and `+` runs commands efficiently by batching arguments. The `+` terminator groups multiple files into single command invocations, reducing process overhead compared to `\;` which runs per file.<|>find . -name "*.txt" -exec grep -l "pattern" {} +
 The `xargs -I {}` command uses a placeholder for more complex argument passing. Full control over argument placement.<|>find . -name "*.log" | xargs -I {} cp {} backup/
-Use `parallel` to run commands concurrently on multiple CPU cores. Dramatically speed up batch operations.<|>parallel gzip ::: *.txt
-Advanced `grep` with PCRE using `-P` flag. Use full Perl-compatible regular expressions.<|>grep -P '(?<=\w)(?=\w{3})' file.txt
+Use `parallel` to run commands concurrently on multiple CPU cores, dramatically speeding up batch operations. It can distribute work across cores, remote machines, and handle job queuing automatically.<|>parallel gzip ::: *.txt
+Advanced `grep` with PCRE using `-P` flag enables full Perl-compatible regular expressions including lookaheads, lookbehinds, and complex pattern matching impossible with basic regex engines.<|>grep -P '(?<=\w)(?=\w{3})' file.txt
 The `ripgrep` (rg) command provides extremely fast text searching with modern regex support.<|>rg --type py "class \w+" src/
-Use `jq` to parse and manipulate JSON data from command line. Essential for API and config file processing.<|>curl api.example.com | jq '.data[] | .name'
+Use `jq` to parse and manipulate JSON data with a powerful query language. It can filter, transform, and extract data from APIs and config files with complex operations like joins, grouping, and calculations.<|>curl api.example.com | jq '.data[] | .name'
 Advanced `sort` with multiple keys and custom sorting. Sort by multiple criteria simultaneously.<|>sort -k2,2n -k1,1 data.txt
 The `join` command with custom field separators. Database-like joins on delimited text files.<|>join -t: -1 1 -2 1 file1.txt file2.txt
 Use `comm -23` to find lines in first file but not in second. Set operations on sorted files.<|>comm -23 <(sort file1) <(sort file2)
@@ -22,7 +22,7 @@ The `cut` command with character ranges instead of fields. Precise text extracti
 Use `tr -s` to squeeze multiple consecutive characters into one. Clean up irregularly formatted text.<|>tr -s ' ' < file.txt
 Advanced `sed` with hold space for complex multi-line operations. Manipulate multiple lines together.<|>sed -n '1h; 1!H; $g; s/\n/ /g; p' file.txt
 The `zsh` shell with advanced globbing patterns. More powerful file matching than bash.<|>ls **/*.txt(.)
-Use `bash` parameter expansion for string manipulation. Avoid external tools for simple string operations.<|>echo ${variable##*/}
+Use `bash` parameter expansion for efficient string manipulation without external tools. Operations like ${var##*/} (basename), ${var%.*} (remove extension), and ${var/old/new} (substitute) are faster than calling external commands.<|>echo ${variable##*/}
 Advanced `printf` formatting for precise output control. Professional formatting in shell scripts.<|>printf "%10s %5d %8.2f\n" "$name" $count $value
 The `mapfile` command reads lines into bash arrays efficiently. Better than loops for file processing.<|>mapfile -t lines < file.txt
 Use `compgen` to generate completions and available commands. Explore what's available in current environment.<|>compgen -c | grep git
@@ -93,5 +93,5 @@ Advanced `vim` with ex commands for batch editing. Automate complex text editing
 The `emacs` command in batch mode for text processing. Alternative to vim for automated editing.<|>emacs --batch --eval "(replace-string \"old\" \"new\")" file.txt
 Use `pandoc` for document format conversion. Convert between markup formats programmatically.<|>pandoc -f markdown -t html document.md -o document.html
 Advanced `git` with custom formatting and scripting. Automate version control operations.<|>git log --pretty=format:"%h %s %an" --since="1 week ago"
-The `docker` command for containerized application deployment. Modern application packaging and deployment.<|>docker run -d -p 80:80 -v $(pwd):/app nginx
+The `docker` command enables containerized application deployment with consistent environments across development, testing, and production. Containers package applications with dependencies for reliable, portable deployment.<|>docker run -d -p 80:80 -v $(pwd):/app nginx
 Use `kubectl` for Kubernetes cluster management. Container orchestration and cloud-native deployments.<|>kubectl get pods --field-selector=status.phase=Running
