@@ -1,0 +1,104 @@
+Use `find` with `-type f` to search only for files, or `-type d` for directories. Much more precise than basic find.<|>find /path -type f -name "*.txt"
+The `xargs` command lets you pass output from one command as arguments to another. Perfect for batch operations.<|>find . -name "*.log" | xargs rm
+Use `grep -r` to recursively search through directories for text patterns. Great for code exploration.<|>grep -r "function" /path/to/code
+The `awk` command processes structured text data line by line. Extract specific columns from files easily.<|>awk '{print $1, $3}' /etc/passwd
+Use `sed` to search and replace text in files. Powerful stream editor for text transformations.<|>sed 's/old/new/g' file.txt
+The `cut -d:` command extracts fields from delimited data. Perfect for processing CSV or colon-separated files.<|>cut -d: -f1,3 /etc/passwd
+Use `sort -n` to sort numbers properly instead of alphabetically. Essential for numerical data.<|>sort -n numbers.txt
+The `uniq -c` command counts occurrences of duplicate lines. Great for frequency analysis.<|>sort file.txt | uniq -c
+Use `comm` to compare two sorted files and show differences. Better than diff for simple comparisons.<|>comm file1.txt file2.txt
+The `diff` command shows detailed differences between files. Essential for comparing file versions.<|>diff file1.txt file2.txt
+Use `patch` to apply diff files to update source code. Standard way to distribute code changes.<|>patch < changes.patch
+The `cmp` command compares files byte by byte. Binary-safe comparison tool.<|>cmp file1.bin file2.bin
+Use `md5sum` to generate checksums for file integrity verification. Ensure files haven't been corrupted.<|>md5sum filename.txt
+The `sha256sum` command creates more secure checksums than MD5. Modern standard for file verification.<|>sha256sum filename.txt
+Use `tac` to display file contents in reverse line order. Opposite of cat command.<|>tac file.txt
+The `shuf -n 5` command randomly selects 5 lines from a file. Great for sampling data.<|>shuf -n 5 largefile.txt
+Use `column -t` to format tabular data into aligned columns. Make text tables easier to read.<|>column -t data.txt
+The `pr` command formats text for printing with headers and page breaks. Professional document formatting.<|>pr -h "Title" file.txt
+Use `vim` or `nano` to edit files directly in terminal. Essential text editing skills for system administration.<|>nano filename.txt
+The `less +F` command follows a file like tail -f but with less's navigation features.<|>less +F /var/log/syslog
+Use `zcat` to view compressed files without extracting them. Read .gz files directly.<|>zcat compressed_file.txt.gz
+The `zgrep` command searches inside compressed files. No need to extract first.<|>zgrep "pattern" file.txt.gz
+Use `gzip` to compress files and save disk space. Standard compression tool in Linux.<|>gzip largefile.txt
+The `gunzip` command decompresses .gz files. Restore compressed files to original format.<|>gunzip file.txt.gz
+Use `tar -czf` to create compressed archives. Combine multiple files into one compressed package.<|>tar -czf archive.tar.gz folder/
+The `tar -tf` command lists contents of tar archives without extracting. Preview what's inside.<|>tar -tf archive.tar.gz
+Use `cpio` for advanced archiving with more features than tar. Better for system backups.<|>find . | cpio -o > backup.cpio
+The `rsync -av` command synchronizes directories with verbose output. See exactly what's being copied.<|>rsync -av source/ destination/
+Use `rsync --delete` to make destination identical to source. Removes extra files in destination.<|>rsync -av --delete source/ destination/
+The `scp -r` command recursively copies entire directories to remote servers.<|>scp -r folder/ user@host:/path/
+Use `sftp` for interactive file transfer to remote servers. More user-friendly than scp for multiple operations.<|>sftp user@hostname
+The `nc` (netcat) command creates network connections. Swiss army knife of networking tools.<|>nc -l 8080
+Use `ss` to see network connections and listening ports. Modern replacement for netstat.<|>ss -tuln
+The `lsof` command shows open files and network connections. Powerful troubleshooting tool.<|>lsof -i :80
+Use `netstat -tuln` to see listening network ports. Check what services are running.<|>netstat -tuln
+The `ping -c 4` command sends exactly 4 ping packets. Test network connectivity with control.<|>ping -c 4 google.com
+Use `traceroute` to see the network path to a destination. Debug network routing issues.<|>traceroute google.com
+The `nslookup` command queries DNS servers for domain information. Troubleshoot DNS problems.<|>nslookup google.com
+Use `dig` for advanced DNS queries. More powerful and flexible than nslookup.<|>dig google.com
+The `host` command performs simple DNS lookups. Quick way to resolve domain names.<|>host google.com
+Use `curl -I` to see only HTTP headers without downloading content. Check server responses.<|>curl -I https://example.com
+The `wget -O` command saves downloaded content with a specific filename.<|>wget -O newname.html https://example.com
+Use `curl -o` to save curl output to a file. Alternative to wget for downloads.<|>curl -o file.html https://example.com
+The `lynx` command browses websites in text mode. Access web content from terminal.<|>lynx https://example.com
+Use `w3m` as an alternative text-based web browser. Sometimes better than lynx for complex sites.<|>w3m https://example.com
+The `mail` command sends emails from command line. Useful for automated notifications.<|>echo "message" | mail -s "subject" user@example.com
+Use `mutt` for a full-featured terminal email client. Read and compose emails in terminal.<|>mutt
+The `calendar` command shows upcoming events from calendar files. Personal scheduling in terminal.<|>calendar
+Use `at` to schedule commands to run at specific times. One-time job scheduling.<|>echo "command" | at 2:30pm
+The `batch` command runs jobs when system load is low. Background processing without slowing system.<|>echo "command" | batch
+Use `crontab -l` to list your scheduled cron jobs. See what's automated on your account.<|>crontab -l
+The `systemctl status` command checks the status of system services. Modern service management.<|>systemctl status apache2
+Use `journalctl` to view system logs on systemd systems. Centralized logging system.<|>journalctl -f
+The `dmesg` command shows kernel messages. Essential for hardware and driver troubleshooting.<|>dmesg | tail
+Use `lscpu` to see detailed CPU information. Check processor specs and features.<|>lscpu
+The `lsmem` command displays memory information in detail. See RAM configuration and usage.<|>lsmem
+Use `lsusb` to list USB devices connected to your system. Identify USB hardware.<|>lsusb
+The `lspci` command shows PCI devices like graphics cards and network adapters.<|>lspci
+Use `lsmod` to see loaded kernel modules. Check what drivers are currently active.<|>lsmod
+The `modprobe` command loads kernel modules. Add hardware support to running kernel.<|>modprobe module_name
+Use `rmmod` to remove kernel modules. Unload drivers that are no longer needed.<|>rmmod module_name
+The `insmod` command inserts modules into the kernel. Lower-level module loading.<|>insmod module.ko
+Use `depmod` to update module dependencies. Rebuild module dependency database.<|>depmod -a
+The `ldconfig` command updates shared library cache. Refresh system library information.<|>ldconfig
+Use `ldd` to see shared library dependencies of programs. Troubleshoot missing libraries.<|>ldd /bin/ls
+The `nm` command lists symbols in object files. Useful for debugging and development.<|>nm program
+Use `objdump` to disassemble binary files. Advanced debugging and reverse engineering.<|>objdump -d program
+The `strace` command traces system calls made by programs. Debug program behavior at system level.<|>strace ls
+Use `ltrace` to trace library calls made by programs. See what libraries a program uses.<|>ltrace ls
+The `gdb` command starts the GNU debugger. Essential tool for debugging C/C++ programs.<|>gdb program
+Use `valgrind` to detect memory leaks and errors in programs. Advanced debugging for memory issues.<|>valgrind ./program
+The `time` command measures how long programs take to run. Performance analysis tool.<|>time ls -la
+Use `timeout` to limit how long a command can run. Prevent programs from running forever.<|>timeout 10s slow_command
+The `nohup` command runs programs immune to hangups. Keep processes running after logout.<|>nohup long_process &
+Use `disown` to detach jobs from current shell. Remove job control over background processes.<|>disown %1
+The `screen -S` command creates named screen sessions. Organize multiple terminal sessions.<|>screen -S session_name
+Use `screen -r` to reattach to detached screen sessions. Resume your work from where you left off.<|>screen -r session_name
+The `tmux new -s` command creates named tmux sessions. Modern alternative to screen.<|>tmux new -s session_name
+Use `tmux attach -t` to reconnect to tmux sessions. Resume tmux work sessions.<|>tmux attach -t session_name
+The `script` command records terminal sessions to files. Create logs of your command line work.<|>script session.log
+Use `expect` to automate interactive programs. Script programs that require user input.<|>expect script.exp
+The `dialog` command creates text-based user interfaces. Build interactive shell scripts.<|>dialog --msgbox "Hello" 10 30
+Use `zenity` to create graphical dialogs from shell scripts. GUI elements in scripts.<|>zenity --info --text="Done"
+The `notify-send` command displays desktop notifications from command line. Alert users from scripts.<|>notify-send "Title" "Message"
+Use `beep` to make system sound alerts. Audio notifications from command line.<|>beep
+The `figlet` command creates ASCII art text. Make fancy text banners in terminal.<|>figlet "Hello World"
+Use `cowsay` to display messages in speech bubbles from ASCII cows. Fun command for messages.<|>cowsay "Hello there"
+The `fortune` command displays random quotes and sayings. Add personality to your terminal.<|>fortune
+Use `sl` (steam locomotive) as a fun alternative to typos of 'ls'. Entertainment value only.<|>sl
+The `factor` command finds prime factors of numbers. Mathematical tool for number analysis.<|>factor 1024
+Use `units` to convert between different measurement units. Calculator for unit conversions.<|>units '100 feet' 'meters'
+The `dc` command provides a reverse Polish notation calculator. Advanced mathematical calculations.<|>echo "2 3 + p" | dc
+Use `expr` to evaluate mathematical expressions in shell scripts. Basic arithmetic in scripts.<|>expr 5 + 3
+The `test` command evaluates conditional expressions. Essential for shell script logic.<|>test -f filename.txt
+Use `[[ ]]` for advanced conditional testing in bash. More powerful than basic test command.<|>[[ -f file.txt && -r file.txt ]]
+The `seq -s` command generates number sequences with custom separators. Flexible sequence generation.<|>seq -s, 1 10
+Use `jot` (on some systems) to generate sequences and random numbers. Alternative to seq.<|>jot 10 1 100
+The `shred` command securely deletes files by overwriting them multiple times. Secure file deletion.<|>shred -vfz -n 3 sensitive_file.txt
+Use `wipe` to securely delete files with multiple overwrite passes. Alternative to shred.<|>wipe -rf sensitive_folder/
+The `dd` command copies and converts data at byte level. Low-level disk operations and backups.<|>dd if=/dev/sda of=backup.img bs=1M
+Use `hexdump` to view binary files in hexadecimal format. Examine binary data structure.<|>hexdump -C binary_file
+The `xxd` command creates hex dumps and can reverse them back to binary. Versatile hex editor.<|>xxd binary_file
+Use `od` to dump files in various formats (octal, hex, ASCII). Alternative to hexdump.<|>od -x binary_file
+The `strings` command extracts printable strings from binary files. Find text in binary data.<|>strings /bin/ls

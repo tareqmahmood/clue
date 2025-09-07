@@ -1,0 +1,97 @@
+Use `awk` to process structured text data. It's like a mini programming language for text manipulation.<|>awk '{print $1, $3}' /etc/passwd
+Process substitution with `<()` lets you use command output as if it were a file. Powerful for complex pipelines.<|>diff <(sort file1) <(sort file2)
+The `fc` command opens your last command in your default editor for complex modifications before re-execution.<|>fc
+Advanced `sed` with multiple commands using semicolons. Chain text transformations in one command.<|>sed 's/old/new/g; s/foo/bar/g' file.txt
+Use `awk` with field separators to process CSV data. Extract and manipulate structured data efficiently.<|>awk -F',' '{print $2, $4}' data.csv
+The `perl -pe` command provides powerful one-liner text processing. More advanced than sed for complex patterns.<|>perl -pe 's/pattern/replacement/g' file.txt
+Use `python -c` for complex text processing that's beyond awk/sed capabilities. Full programming power in one line.<|>python -c "import sys; print(len(sys.stdin.read().split()))"
+Advanced `find` with `-exec` and `+` for efficient batch operations. Process multiple files with one command invocation.<|>find . -name "*.txt" -exec grep -l "pattern" {} +
+The `xargs -I {}` command uses a placeholder for more complex argument passing. Full control over argument placement.<|>find . -name "*.log" | xargs -I {} cp {} backup/
+Use `parallel` to run commands concurrently on multiple CPU cores. Dramatically speed up batch operations.<|>parallel gzip ::: *.txt
+Advanced `grep` with PCRE using `-P` flag. Use full Perl-compatible regular expressions.<|>grep -P '(?<=\w)(?=\w{3})' file.txt
+The `ripgrep` (rg) command provides extremely fast text searching with modern regex support.<|>rg --type py "class \w+" src/
+Use `jq` to parse and manipulate JSON data from command line. Essential for API and config file processing.<|>curl api.example.com | jq '.data[] | .name'
+Advanced `sort` with multiple keys and custom sorting. Sort by multiple criteria simultaneously.<|>sort -k2,2n -k1,1 data.txt
+The `join` command with custom field separators. Database-like joins on delimited text files.<|>join -t: -1 1 -2 1 file1.txt file2.txt
+Use `comm -23` to find lines in first file but not in second. Set operations on sorted files.<|>comm -23 <(sort file1) <(sort file2)
+Advanced `rsync` with exclusion patterns and bandwidth limits. Fine-tuned file synchronization.<|>rsync -av --exclude='*.tmp' --bwlimit=1000 src/ dest/
+The `tee` command with process substitution for multiple outputs. Send data to multiple destinations simultaneously.<|>command | tee >(grep error > errors.log) >(grep warning > warnings.log)
+Use `mkfifo` to create named pipes for inter-process communication. Advanced process coordination.<|>mkfifo pipe && command1 > pipe & command2 < pipe
+Advanced `awk` with BEGIN and END blocks. Sophisticated data processing with initialization and cleanup.<|>awk 'BEGIN{sum=0} {sum+=$1} END{print "Total:", sum}' numbers.txt
+The `cut` command with character ranges instead of fields. Precise text extraction by position.<|>cut -c10-20 file.txt
+Use `tr -s` to squeeze multiple consecutive characters into one. Clean up irregularly formatted text.<|>tr -s ' ' < file.txt
+Advanced `sed` with hold space for complex multi-line operations. Manipulate multiple lines together.<|>sed -n '1h; 1!H; $g; s/\n/ /g; p' file.txt
+The `zsh` shell with advanced globbing patterns. More powerful file matching than bash.<|>ls **/*.txt(.)
+Use `bash` parameter expansion for string manipulation. Avoid external tools for simple string operations.<|>echo ${variable##*/}
+Advanced `printf` formatting for precise output control. Professional formatting in shell scripts.<|>printf "%10s %5d %8.2f\n" "$name" $count $value
+The `mapfile` command reads lines into bash arrays efficiently. Better than loops for file processing.<|>mapfile -t lines < file.txt
+Use `compgen` to generate completions and available commands. Explore what's available in current environment.<|>compgen -c | grep git
+Advanced `history` with `!` operators for command recall and modification. Efficient command line navigation.<|>!grep:s/old/new/
+The `bind` command customizes readline key bindings. Personalize command line editing behavior.<|>bind '"\C-x\C-e": edit-and-execute-command'
+Use `set -euo pipefail` in scripts for strict error handling. Make bash scripts more reliable.<|>set -euo pipefail
+Advanced `trap` for cleanup operations in scripts. Ensure proper cleanup even when scripts are interrupted.<|>trap 'rm -f /tmp/$$*' EXIT
+The `exec` command replaces current process with another. Efficient process management in scripts.<|>exec python script.py
+Use `source` with command substitution for dynamic script loading. Load configurations based on conditions.<|>source <(generate_config)
+Advanced `case` statements with pattern matching. Sophisticated flow control in shell scripts.<|>case $var in pattern1|pattern2) action ;; esac
+The `select` command creates interactive menus in bash scripts. User-friendly script interfaces.<|>select option in opt1 opt2 opt3; do echo $option; done
+Use `coproc` to start background processes with bidirectional communication. Advanced process interaction.<|>coproc python script.py
+Advanced `read` with timeouts and arrays. Robust user input handling in scripts.<|>read -t 10 -a array -p "Enter values: "
+The `here document` with `<<-` strips leading tabs. Clean multiline text in scripts.<|>cat <<-EOF > file.txt
+Use `here strings` with `<<<` for simple string input. Pass strings to commands expecting stdin.<|>grep pattern <<< "$variable"
+Advanced `for` loops with brace expansion. Efficient iteration over sequences and patterns.<|>for i in {1..100..2}; do echo $i; done
+The `while read` loop for processing file lines. Safe and efficient file processing pattern.<|>while IFS= read -r line; do echo "$line"; done < file.txt
+Use `until` loops for condition-based iteration. Loop until something becomes true.<|>until ping -c1 server &>/dev/null; do sleep 1; done
+Advanced `if` with command substitution and exit codes. Sophisticated conditional logic.<|>if output=$(command 2>&1); then echo "Success: $output"; fi
+The `(( ))` arithmetic context for mathematical operations. Efficient math in bash without external tools.<|>if (( value > 100 && value < 200 )); then echo "in range"; fi
+Use `[[ ]]` with regular expressions for pattern matching. Powerful string testing in conditions.<|>if [[ $string =~ ^[0-9]+$ ]]; then echo "numeric"; fi
+Advanced `function` declarations with local variables. Proper function design in shell scripts.<|>function myfunction() { local var="value"; echo "$var"; }
+The `declare` command for variable attributes and types. Control variable behavior in scripts.<|>declare -i count=0; declare -r readonly_var="constant"
+Use `nameref` with `declare -n` for variable indirection. Dynamic variable access by name.<|>declare -n ref=varname; echo "$ref"
+Advanced `array` operations with associative arrays. Dictionary-like data structures in bash.<|>declare -A assoc_array; assoc_array[key]="value"
+The `printf -v` command assigns formatted output to variables. Efficient string formatting without subshells.<|>printf -v timestamp "%(%Y-%m-%d)T" -1
+Use `BASH_REMATCH` array after regex matching. Access captured groups from pattern matches.<|>[[ $string =~ ([0-9]+) ]] && echo "${BASH_REMATCH[1]}"
+Advanced `pushd`/`popd` for directory stack management. Navigate complex directory structures efficiently.<|>pushd /tmp && work_here && popd
+The `dirs` command shows the directory stack. See your navigation history and options.<|>dirs -v
+Use `shopt` to configure bash behavior options. Customize shell behavior for your needs.<|>shopt -s globstar nullglob
+Advanced `complete` for custom tab completion. Create intelligent completion for your scripts.<|>complete -F _custom_function my_command
+The `readarray` command loads file contents into arrays. Alternative syntax for mapfile.<|>readarray -t lines < file.txt
+Use `eval` carefully for dynamic command construction. Powerful but dangerous command execution.<|>eval "command_$suffix --option=$value"
+Advanced `getopts` for command-line argument parsing. Professional option handling in scripts.<|>while getopts "hv:f:" opt; do case $opt in h) usage ;; esac; done
+The `getopt` command for GNU-style long option parsing. Extended argument processing capabilities.<|>OPTS=$(getopt -o hv: --long help,verbose: -n script -- "$@")
+Use `shift` in functions for argument processing. Handle variable numbers of function parameters.<|>function process_args() { while (( $# > 0 )); do echo "$1"; shift; done; }
+Advanced `IFS` manipulation for custom field splitting. Control how bash splits input into words.<|>IFS=$'\n' read -d '' -r -a lines < file.txt
+The `PIPESTATUS` array captures exit codes from all pipeline commands. Robust error handling in pipelines.<|>command1 | command2 | command3; echo "${PIPESTATUS[@]}"
+Use `SECONDS` built-in variable for timing operations. Measure script execution time without external tools.<|>SECONDS=0; long_operation; echo "Took $SECONDS seconds"
+Advanced `RANDOM` usage for generating random data. Create random numbers and strings in scripts.<|>password=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 12)
+The `LINENO` variable shows current line number in scripts. Useful for debugging and logging.<|>echo "Error at line $LINENO"
+Use `FUNCNAME` array to see function call stack. Debug complex function hierarchies.<|>echo "Called from ${FUNCNAME[1]} at line ${BASH_LINENO[0]}"
+Advanced `PS4` for debugging script execution. Customize debug output format for script tracing.<|>PS4='+ ${FUNCNAME[0]:+${FUNCNAME[0]}():}line ${LINENO}: '; set -x
+The `BASH_SOURCE` array shows source file names. Track which files contain running code.<|>echo "Running from ${BASH_SOURCE[0]}"
+Use `caller` to get calling function information. Advanced debugging and introspection.<|>caller 0
+Advanced `ulimit` for resource control. Prevent scripts from consuming too many system resources.<|>ulimit -v 1000000  # Limit virtual memory to ~1GB
+The `timeout` command with signal control. Fine-tuned process time limiting with specific signals.<|>timeout -s TERM 30s command
+Use `flock` for file locking to prevent concurrent script execution. Ensure only one instance runs.<|>exec 200>/var/lock/script.lock; flock -n 200 || exit 1
+Advanced `stty` for terminal control. Manipulate terminal settings from scripts.<|>stty -echo; read -p "Password: " pass; stty echo
+The `tput` command for terminal capabilities. Portable terminal control across different systems.<|>tput bold; echo "Bold text"; tput sgr0
+Use `column` with custom separators for data formatting. Professional table formatting from scripts.<|>column -t -s',' data.csv
+Advanced `date` formatting and calculation. Sophisticated date manipulation for logs and timestamps.<|>date -d "yesterday" "+%Y-%m-%d %H:%M:%S"
+The `stat` command for detailed file information. Get comprehensive file metadata for processing.<|>stat --format="%Y %n" * | sort -n
+Use `find` with `-printf` for custom output formatting. Precisely format find results without additional tools.<|>find . -name "*.txt" -printf "%TY-%Tm-%Td %p\n"
+Advanced `tar` with compression selection and exclusions. Professional archiving with fine control.<|>tar --exclude='*.tmp' -czf backup.tar.gz --use-compress-program=pigz dir/
+The `rsync` command with checksum verification and partial transfers. Robust file synchronization.<|>rsync -avz --checksum --partial --progress src/ dest/
+Use `lsof` with advanced filtering. Monitor specific file and network activity.<|>lsof -i tcp:80 -a -p $(pgrep nginx)
+Advanced `ss` socket statistics with filtering. Modern network connection analysis.<|>ss -tuln state listening
+The `nmap` command for network discovery and security auditing. Professional network reconnaissance.<|>nmap -sS -O -F target_host
+Use `tcpdump` for network packet capture and analysis. Low-level network debugging.<|>tcpdump -i eth0 -w capture.pcap host example.com
+Advanced `iptables` for firewall configuration. Network security and traffic control.<|>iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+The `netcat` command in UDP mode for network testing. Versatile network utility for various protocols.<|>nc -u -l 1234
+Use `socat` for advanced network relay and redirection. More powerful alternative to netcat.<|>socat TCP-LISTEN:8080,reuseaddr,fork TCP:backend:80
+Advanced `curl` with custom headers and data formats. Professional API interaction and testing.<|>curl -H "Content-Type: application/json" -d '{"key":"value"}' https://api.example.com
+The `jq` command with complex filters and transformations. Advanced JSON manipulation and extraction.<|>jq '.items[] | select(.status == "active") | .name' data.json
+Use `xmllint` for XML parsing and validation. Command-line XML processing and formatting.<|>xmllint --xpath "//element/@attribute" file.xml
+Advanced `vim` with ex commands for batch editing. Automate complex text editing operations.<|>vim -c ":%s/old/new/g | :wq" file.txt
+The `emacs` command in batch mode for text processing. Alternative to vim for automated editing.<|>emacs --batch --eval "(replace-string \"old\" \"new\")" file.txt
+Use `pandoc` for document format conversion. Convert between markup formats programmatically.<|>pandoc -f markdown -t html document.md -o document.html
+Advanced `git` with custom formatting and scripting. Automate version control operations.<|>git log --pretty=format:"%h %s %an" --since="1 week ago"
+The `docker` command for containerized application deployment. Modern application packaging and deployment.<|>docker run -d -p 80:80 -v $(pwd):/app nginx
+Use `kubectl` for Kubernetes cluster management. Container orchestration and cloud-native deployments.<|>kubectl get pods --field-selector=status.phase=Running

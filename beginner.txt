@@ -1,0 +1,107 @@
+Use `ls -lh` to see human-readable file sizes instead of raw bytes. The -h flag makes output much more readable.<|>ls -lh
+The `cd -` command takes you back to your previous directory. Very handy for switching between two locations.<|>cd -
+Use `pwd` to print your current working directory path. Essential when you're lost in the filesystem.<|>pwd
+The `ls -la` command shows all files including hidden ones (starting with dot). Great for seeing configuration files.<|>ls -la
+Use `mkdir -p` to create nested directories in one command. The -p flag creates parent directories as needed.<|>mkdir -p path/to/new/folder
+The `cp -r` command copies directories recursively. Essential for copying folders and their contents.<|>cp -r source_folder destination_folder
+Use `mv` to both move and rename files. It's the same command for both operations in Linux.<|>mv oldname.txt newname.txt
+The `rm -i` command asks for confirmation before deleting files. Safer than plain rm for beginners.<|>rm -i filename.txt
+Use `cat` to quickly view the contents of a text file. Perfect for small files.<|>cat filename.txt
+The `less` command lets you scroll through large files page by page. Press 'q' to quit.<|>less largefile.txt
+Use `head` to see the first 10 lines of a file. Great for checking file headers or previewing content.<|>head filename.txt
+The `tail` command shows the last 10 lines of a file. Very useful for checking log files.<|>tail logfile.txt
+Use `wc -l` to count the number of lines in a file. Simple way to see file size in lines.<|>wc -l filename.txt
+The `which` command shows the full path of a command. Useful to see where programs are installed.<|>which python
+Use `man` followed by a command name to read its manual. The best way to learn about commands.<|>man ls
+The `history` command shows your recent commands. Great for finding commands you used before.<|>history
+Use `clear` to clean up your terminal screen. Keeps things tidy and easy to read.<|>clear
+The `date` command shows the current date and time. Simple but often needed.<|>date
+Use `whoami` to see your current username. Helpful when working with multiple accounts.<|>whoami
+The `ps` command shows running processes. Basic way to see what's currently running.<|>ps
+Use `top` to see live system activity and running processes. Press 'q' to quit.<|>top
+The `df -h` command shows disk space usage in human-readable format. Check how much space you have left.<|>df -h
+Use `du -sh` to see the size of a directory. Great for finding what's taking up space.<|>du -sh foldername
+The `free -h` command shows memory usage in human-readable format. Check your RAM usage.<|>free -h
+Use `uname -a` to see system information including kernel version and architecture.<|>uname -a
+The `uptime` command shows how long the system has been running and current load.<|>uptime
+Use `echo` to print text or variables. Basic command for displaying information.<|>echo "Hello World"
+The `touch` command creates empty files or updates file timestamps. Quick way to create files.<|>touch newfile.txt
+Use `file` to identify what type of file something is. Useful when file extensions are missing.<|>file unknown_file
+The `locate` command finds files by name across the entire system. Faster than find for simple searches.<|>locate filename
+Use `passwd` to change your password. Important for security maintenance.<|>passwd
+The `su` command switches to another user account. Use 'su -' to switch to root with full environment.<|>su - username
+Use `sudo` to run commands as another user (usually root). Safer than switching to root completely.<|>sudo command
+The `chmod +x` command makes a file executable. Essential for running scripts you create.<|>chmod +x script.sh
+Use `chown` to change file ownership. Useful when you need to transfer file ownership.<|>chown user:group filename
+The `ln -s` command creates symbolic links (shortcuts). Useful for creating aliases to files or folders.<|>ln -s /path/to/original linkname
+Use `tar -xzf` to extract .tar.gz files. Common format for downloading software packages.<|>tar -xzf archive.tar.gz
+The `zip` command creates zip archives. Simple way to compress multiple files.<|>zip archive.zip file1 file2 file3
+Use `unzip` to extract zip files. Standard way to decompress zip archives.<|>unzip archive.zip
+The `wget` command downloads files from the internet. Essential tool for fetching files via command line.<|>wget https://example.com/file.zip
+Use `curl` to transfer data from servers. More versatile than wget for web requests.<|>curl https://api.example.com
+The `ssh` command connects to remote servers securely. Essential for remote server administration.<|>ssh user@hostname
+Use `scp` to copy files to/from remote servers. Secure way to transfer files over the network.<|>scp file.txt user@host:/path/
+The `rsync` command synchronizes files between locations. Better than cp for large transfers.<|>rsync -av source/ destination/
+Use `mount` to attach filesystems. Needed for accessing USB drives and external storage.<|>mount /dev/sdb1 /mnt/usb
+The `umount` command safely removes mounted filesystems. Always unmount before removing USB drives.<|>umount /mnt/usb
+Use `lsblk` to list all block devices (drives). Great for seeing all storage devices on your system.<|>lsblk
+The `fdisk -l` command lists all disk partitions. Useful for understanding your storage layout.<|>fdisk -l
+Use `crontab -e` to edit scheduled tasks. Automate commands to run at specific times.<|>crontab -e
+The `jobs` command shows background jobs running in your current shell session.<|>jobs
+Use `nohup` to run commands that continue after you log out. Keeps processes running in background.<|>nohup long_command &
+The `screen` command creates detachable terminal sessions. Continue work even after disconnecting.<|>screen
+Use `tmux` for advanced terminal session management. More modern alternative to screen.<|>tmux
+The `alias` command creates shortcuts for long commands. Save time with frequently used commands.<|>alias ll='ls -la'
+Use `env` to see all environment variables. Useful for debugging and understanding your environment.<|>env
+The `export` command sets environment variables. Make variables available to other programs.<|>export PATH=$PATH:/new/path
+Use `source` or `.` to execute commands from a file in the current shell. Load configuration changes.<|>source ~/.bashrc
+The `type` command shows what kind of command something is (built-in, alias, or external program).<|>type ls
+Use `whereis` to find the location of a command's binary, source, and manual files.<|>whereis python
+The `apropos` command searches for commands by keyword. Find commands when you don't know the exact name.<|>apropos copy
+Use `info` to read detailed documentation. More comprehensive than man pages for some commands.<|>info grep
+The `exit` command closes your current shell session. Proper way to log out of terminal.<|>exit
+Use `logout` to end your login session. Alternative to exit for login shells.<|>logout
+The `id` command shows your user ID and group memberships. Useful for permission troubleshooting.<|>id
+Use `groups` to see which groups you belong to. Important for understanding file permissions.<|>groups
+The `finger` command shows information about users on the system. See who's logged in and when.<|>finger username
+Use `last` to see recent login history. Check who has accessed the system recently.<|>last
+The `w` command shows who is currently logged in and what they're doing. Real-time user activity.<|>w
+Use `tty` to see which terminal device you're using. Useful for scripting and system administration.<|>tty
+The `basename` command extracts the filename from a full path. Useful in scripts for processing paths.<|>basename /path/to/file.txt
+Use `dirname` to extract the directory path from a full path. Complement to basename.<|>dirname /path/to/file.txt
+The `cut` command extracts specific columns from text. Great for processing CSV files and structured data.<|>cut -d',' -f1 data.csv
+Use `sort` to sort lines in text files. Organize data alphabetically or numerically.<|>sort filename.txt
+The `uniq` command removes duplicate lines from sorted text. Often used with sort for data cleanup.<|>sort file.txt | uniq
+Use `tr` to translate or delete characters. Simple text transformation tool.<|>tr 'a-z' 'A-Z' < file.txt
+The `tee` command sends output to both screen and file simultaneously. Great for logging command output.<|>command | tee output.log
+Use `yes` to automatically answer yes to prompts. Useful for automating interactive commands.<|>yes | command_with_prompts
+The `sleep` command pauses execution for a specified time. Useful in scripts for timing control.<|>sleep 5
+Use `watch` to run a command repeatedly and display updates. Monitor changing information in real-time.<|>watch -n 2 'df -h'
+The `cal` command displays a calendar. Quick way to see dates and day-of-week information.<|>cal
+Use `bc` as a command-line calculator. Perform math calculations directly in terminal.<|>echo "2 + 2" | bc
+The `factor` command shows the prime factors of a number. Useful for mathematical analysis.<|>factor 100
+Use `seq` to generate sequences of numbers. Useful for loops and creating numbered lists.<|>seq 1 10
+The `shuf` command randomly shuffles lines in a file. Great for randomizing lists or selecting random samples.<|>shuf file.txt
+Use `rev` to reverse the characters in each line of text. Simple text manipulation tool.<|>rev file.txt
+The `nl` command numbers the lines in a file. Add line numbers to any text file.<|>nl filename.txt
+Use `expand` to convert tabs to spaces in text files. Useful for consistent formatting.<|>expand tabbed_file.txt
+The `unexpand` command converts spaces back to tabs. Reverse operation of expand.<|>unexpand spaced_file.txt
+Use `fmt` to format text to specific line widths. Make text fit nicely in terminal windows.<|>fmt -w 80 file.txt
+The `fold` command wraps long lines to specified width. Alternative to fmt for line wrapping.<|>fold -w 70 file.txt
+Use `paste` to merge lines from multiple files side by side. Combine data from different sources.<|>paste file1.txt file2.txt
+The `join` command merges files based on common fields. Database-like join operation for text files.<|>join file1.txt file2.txt
+Use `split` to divide large files into smaller pieces. Useful for handling files that are too big.<|>split -l 1000 largefile.txt part_
+The `csplit` command splits files based on patterns. More advanced splitting than basic split command.<|>csplit file.txt '/pattern/' '{*}'
+Use `head -n 5` to see just the first 5 lines of a file. Customize how many lines to view.<|>head -n 5 file.txt
+The `tail -n 5` command shows the last 5 lines. Customize tail output to your needs.<|>tail -n 5 file.txt
+Use `tail -f` to follow a file as it grows. Perfect for monitoring log files in real-time.<|>tail -f /var/log/syslog
+The `grep` command searches for text patterns in files. Most important text search tool in Linux.<|>grep "pattern" filename.txt
+Use `grep -i` for case-insensitive searches. Find text regardless of uppercase/lowercase.<|>grep -i "pattern" file.txt
+The `grep -n` command shows line numbers with search results. Helps locate where matches occur.<|>grep -n "pattern" file.txt
+Use `grep -v` to show lines that don't match a pattern. Inverse or negative search.<|>grep -v "unwanted" file.txt
+The `grep -c` command counts how many lines match a pattern. Get statistics on your search results.<|>grep -c "pattern" file.txt
+Use `find . -name "*.txt"` to search for files by name pattern. Most powerful file search command.<|>find . -name "*.txt"
+The `find` command with `-type f` searches only for files, ignoring directories.<|>find /path -type f -name "pattern"
+Use `find` with `-type d` to search only for directories, ignoring files.<|>find /path -type d -name "pattern"
+The `find` command with `-size +1M` finds files larger than 1 megabyte. Search by file size.<|>find . -size +1M
+Use `find` with `-mtime -7` to find files modified in the last 7 days. Search by modification time.<|>find . -mtime -7
