@@ -1,5 +1,7 @@
 # Clue - Linux Command Line Tips Utility
 
+![Made for: Undergrads](https://img.shields.io/badge/Made%20For-Undergrads-green?style=flat-square&logo=gnubash) ![Warning: Vibe Coding](https://img.shields.io/badge/Warning-Vibe%20Coding-yellow?style=flat-square&logo=linux)
+
 A bash-only Linux command line utility that displays helpful Linux tips automatically as you work, helping you learn new commands and improve your terminal skills.
 
 ## 🚀 Quick Install
